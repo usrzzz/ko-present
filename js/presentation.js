@@ -61,14 +61,28 @@ const notes = [
 
 function update() {
   slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+
   currentSlide.textContent = String(index + 1).padStart(2, '0');
   totalSlides.textContent = String(slides.length).padStart(2, '0');
-  progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
-  notesText.innerHTML = notes[index] || '';
-  document.title = `${String(index + 1).padStart(2,'0')} — ${slides[index].dataset.title} | KOWEB Win-Win System`;
 
-  // restart slide animations
+  progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
+
+  notesText.innerHTML = notes[index] || '';
+
   const active = slides[index];
+
+  // UI color otomatis mengikuti slide
+  const isLightUI =
+    active.classList.contains('theme-light') ||
+    active.classList.contains('theme-soft') ||
+    active.classList.contains('theme-accent');
+
+  document.body.classList.toggle('ui-light', isLightUI);
+
+  document.title =
+    `${String(index + 1).padStart(2,'0')} — ${active.dataset.title} | KOWEB Win-Win System`;
+
+  // restart animation
   active.querySelectorAll('.reveal').forEach(el => {
     el.style.animation = 'none';
     void el.offsetHeight;
