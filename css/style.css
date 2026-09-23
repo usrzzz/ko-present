@@ -207,3 +207,125 @@ button{font:inherit}
   .closing-title.second{text-align:left}
   .closing-line{display:none}
 }
+
+/* =========================================================
+   GLOBAL UI CONTRAST
+========================================================= */
+
+.topbar,
+.controls {
+  transition:
+    color .35s ease,
+    border-color .35s ease;
+}
+
+.brand,
+.hint,
+.slide-counter {
+  transition: color .35s ease, opacity .35s ease;
+}
+
+.icon-btn,
+.controls button {
+  transition:
+    color .35s ease,
+    background .35s ease,
+    border-color .35s ease;
+}
+
+.progress {
+  transition: background .35s ease;
+}
+
+/* LIGHT SLIDE UI */
+body.ui-light .topbar,
+body.ui-light .controls {
+  color: #0e1013;
+}
+
+body.ui-light .brand {
+  color: #0e1013;
+}
+
+body.ui-light .hint {
+  color: rgba(14, 16, 19, .55);
+}
+
+body.ui-light .icon-btn,
+body.ui-light .controls button {
+  color: #0e1013;
+
+  background: rgba(255, 255, 255, .38);
+
+  border-color: rgba(14, 16, 19, .18);
+
+  backdrop-filter: blur(14px);
+}
+
+body.ui-light .icon-btn:hover,
+body.ui-light .controls button:hover {
+  background: rgba(255, 255, 255, .75);
+}
+
+body.ui-light .slide-counter {
+  color: #0e1013;
+}
+
+body.ui-light .progress {
+  background: rgba(14, 16, 19, .18);
+}
+
+/* DARK SLIDE UI */
+body:not(.ui-light) .topbar,
+body:not(.ui-light) .controls {
+  color: #fff;
+}
+
+body:not(.ui-light) .icon-btn,
+body:not(.ui-light) .controls button {
+  color: #fff;
+
+  background: rgba(255, 255, 255, .06);
+
+  border-color: rgba(255, 255, 255, .18);
+}
+
+body:not(.ui-light) .progress {
+  background: rgba(255, 255, 255, .18);
+}
+
+body.ui-light .topbar {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(244,241,234,.92),
+      rgba(244,241,234,0)
+    );
+}
+
+body.ui-light .controls {
+  background:
+    linear-gradient(
+      to top,
+      rgba(244,241,234,.92),
+      rgba(244,241,234,0)
+    );
+}
+
+body:not(.ui-light) .topbar {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11,13,16,.8),
+      rgba(11,13,16,0)
+    );
+}
+
+body:not(.ui-light) .controls {
+  background:
+    linear-gradient(
+      to top,
+      rgba(11,13,16,.8),
+      rgba(11,13,16,0)
+    );
+}
